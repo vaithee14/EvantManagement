@@ -1,0 +1,72 @@
+.main-events-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #fff;
+}
+
+.music-title-card {
+  font-size: 36px;
+  color: #ee526f;
+  margin-bottom: 20px;
+}
+
+.event-grid-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.music-event-card { /* Fixed class name */
+  background-color: #ee526f;
+  color: white;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+}
+
+.music-event-card:hover {
+  transform: scale(1.05);
+}
+
+.event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.music-event-title {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.event-description {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.music-event-info {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.music-book-btn {
+  background-color: white;
+  color: #ee526f;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.music-book-btn:hover { /* Fixed selector */
+  background-color: #ffb6c1;
+}

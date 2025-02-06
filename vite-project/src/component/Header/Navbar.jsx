@@ -1,0 +1,47 @@
+import React, { useState } from "react";
+import "@fortawesome/fontawesome-free/css/all.css";
+import "./Navbar.css";
+
+export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  return (
+    <section className="background-img">
+      <nav className="navbar">
+        <div className="logo">CRAZY EVENTS</div>
+
+        <div
+          className={`hamburger-menu ${menuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+        >
+          <i class="fa fa-bars"></i>
+        </div>
+        <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#about">About</a>
+          </li>
+          <li>
+            <a href="#services">Services</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <article className="content-container">
+        <div className="text-content">
+          <h1 className="event-name">CRAZY EVENTS</h1>
+          <p className="event-description">Welcome to my event page</p>
+        </div>
+      </article>
+    </section>
+  );
+}
