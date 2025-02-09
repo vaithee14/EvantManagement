@@ -1,7 +1,15 @@
-import "./Click.css"
+import "./Click.css";
 import { useParams } from "react-router-dom";
-import rockFestImage from "../../assets/music2.jpg"
-import event2 from "../../assets/eventmusic2.jpg"
+import rockFestImage from "../../assets/music2.jpg";
+import JazzNight from "../../assets/eventmusic2.jpg";
+import Festival from "../../assets/music3.jpg";
+import Classical from "../../assets/music4.jpg";
+import PopExtravaganza from "../../assets/music5.jpg";
+import HipHopBash from "../../assets/music6.jpg";
+import CountryLive from "../../assets/music7.jpg";
+import ReggaeVibes from "../../assets/music8.jpg";
+import IndieNight from "../../assets/music9.jpg"
+import MetalMayhem from "../../assets/music10.jpg"
 
 export default function Clickbtn() {
   const { categoryName } = useParams();
@@ -9,7 +17,7 @@ export default function Clickbtn() {
   const events = [
     {
       id: 1,
-      image: rockFestImage, 
+      image: rockFestImage,
       title: "Rock Fest 2025",
       description: "Experience the best rock bands live!",
       location: "New York, NY",
@@ -18,7 +26,7 @@ export default function Clickbtn() {
     },
     {
       id: 2,
-      image: event2,
+      image: JazzNight,
       title: "Jazz Night",
       description: "A soulful evening with jazz legends.",
       location: "Chicago, IL",
@@ -27,7 +35,7 @@ export default function Clickbtn() {
     },
     {
       id: 3,
-      image: "",
+      image: Festival,
       title: "EDM Festival",
       description: "Dance to the beats of top DJs.",
       location: "Las Vegas, NV",
@@ -36,7 +44,7 @@ export default function Clickbtn() {
     },
     {
       id: 4,
-      image: "",
+      image: Classical,
       title: "Classical Symphony",
       description: "A night of timeless classical music.",
       location: "Boston, MA",
@@ -45,7 +53,7 @@ export default function Clickbtn() {
     },
     {
       id: 5,
-      image: "",
+      image: PopExtravaganza,
       title: "Pop Extravaganza",
       description: "Chart-topping pop stars perform live.",
       location: "Los Angeles, CA",
@@ -54,7 +62,7 @@ export default function Clickbtn() {
     },
     {
       id: 6,
-      image: "",
+      image: HipHopBash,
       title: "Hip-Hop Bash",
       description: "Top rappers and hip-hop artists in one show.",
       location: "Atlanta, GA",
@@ -63,7 +71,7 @@ export default function Clickbtn() {
     },
     {
       id: 7,
-      image: "",
+      image: CountryLive,
       title: "Country Live",
       description: "Country music at its finest!",
       location: "Nashville, TN",
@@ -72,7 +80,7 @@ export default function Clickbtn() {
     },
     {
       id: 8,
-      image: "",
+      image: ReggaeVibes,
       title: "Reggae Vibes",
       description: "Feel the reggae rhythms and relax.",
       location: "Miami, FL",
@@ -81,7 +89,7 @@ export default function Clickbtn() {
     },
     {
       id: 9,
-      image: "",
+      image:IndieNight ,
       title: "Indie Night",
       description: "A special event for indie music lovers.",
       location: "Seattle, WA",
@@ -90,7 +98,7 @@ export default function Clickbtn() {
     },
     {
       id: 10,
-      image: "",
+      image: MetalMayhem,
       title: "Metal Mayhem",
       description: "Headbang with the best metal bands.",
       location: "Denver, CO",
@@ -103,22 +111,28 @@ export default function Clickbtn() {
     <section className="main-events-section">
       <h1 className="music-title-card">Music Events</h1>
       <div className="event-grid-card">
-        {events.map((event) => (
+        {events.map((eventdetails) => (
+          <div className="music-event-card" key={eventdetails.id}>
+            <img
+              src={eventdetails.image}
+              alt={eventdetails.title}
+              className="event-image"
+            />
 
-          <div className="music-event-card" key={event.id}>
-            <img src={event.image} alt={event.title} className="event-image" />
-            <h2 className="music-event-title">{event.title}</h2>
-            <p className="event-descriptions">{event.description}</p>
-            <p className="music-event-info">
-              <strong>Location:</strong> {event.location}
-            </p>
-            <p className="music-event-info" >
-              <strong>Date:</strong> {event.date}
-            </p>
-            <p className="music-event-info">
-              <strong>Time:</strong> {event.time}
-            </p>
-            <button className="music-book-btn">Book Ticket</button>
+            <div>
+              <h2 className="music-event-title">{eventdetails.title}</h2>
+              <p className="event-descriptions">{eventdetails.description}</p>
+              <p className="music-event-info">
+                <strong>Location:</strong> {eventdetails.location}
+              </p>
+              <p className="music-event-info">
+                <strong>Date:</strong> {eventdetails.date}
+              </p>
+              <p className="music-event-info">
+                <strong>Time:</strong> {eventdetails.time}
+              </p>
+              <button className="music-book-btn">Book Ticket</button>
+            </div>
           </div>
         ))}
       </div>
