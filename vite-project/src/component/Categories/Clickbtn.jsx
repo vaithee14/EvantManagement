@@ -1,19 +1,19 @@
 import "./Click.css";
-import { useParams } from "react-router-dom";
-import rockFestImage from "../../assets/music2.jpg";
-import JazzNight from "../../assets/eventmusic2.jpg";
-import Festival from "../../assets/music3.jpg";
-import Classical from "../../assets/music4.jpg";
-import PopExtravaganza from "../../assets/music5.jpg";
-import HipHopBash from "../../assets/music6.jpg";
-import CountryLive from "../../assets/music7.jpg";
-import ReggaeVibes from "../../assets/music8.jpg";
-import IndieNight from "../../assets/music9.jpg"
-import MetalMayhem from "../../assets/music10.jpg"
+import { useNavigate, useParams } from "react-router-dom";
+import rockFestImage from "../../assets/rock.jpg";
+import JazzNight from "../../assets/jazz.jpg";
+import Festival from "../../assets/festival.jpg";
+import Classical from "../../assets/classical.jpg";
+import PopExtravaganza from "../../assets/pop.jpg";
+import HipHopBash from "../../assets/hiphop.jpg";
+import CountryLive from "../../assets/Countrylive.jpg";
+import ReggaeVibes from "../../assets/reggaevibes.jpg";
+import IndieNight from "../../assets/indie.jpg";
+import MetalMayhem from "../../assets/metal.jpg";
 
 export default function Clickbtn() {
   const { categoryName } = useParams();
-
+  const navigate = useNavigate();
   const events = [
     {
       id: 1,
@@ -89,7 +89,7 @@ export default function Clickbtn() {
     },
     {
       id: 9,
-      image:IndieNight ,
+      image: IndieNight,
       title: "Indie Night",
       description: "A special event for indie music lovers.",
       location: "Seattle, WA",
@@ -106,6 +106,10 @@ export default function Clickbtn() {
       time: "9:15 PM",
     },
   ];
+  
+  const handleBooking = (eventId) => {
+    navigate(`/book-ticket/${eventId}`);
+  };
 
   return (
     <section className="main-events-section">
@@ -131,7 +135,12 @@ export default function Clickbtn() {
               <p className="music-event-info">
                 <strong>Time:</strong> {eventdetails.time}
               </p>
-              <button className="music-book-btn">Book Ticket</button>
+              <button
+                className="music-book-btn"
+                onClick={() => handleBooking(eventdetails.id)}
+              >
+                Book Ticket
+              </button>
             </div>
           </div>
         ))}

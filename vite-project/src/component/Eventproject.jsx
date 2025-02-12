@@ -19,8 +19,6 @@ export default function Eventprojects() {
       <Sponsers />
       <TicketSection />
       <FooterSection />
-
-      
     </>
   );
 }
