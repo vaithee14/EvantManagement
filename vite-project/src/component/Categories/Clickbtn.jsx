@@ -7,16 +7,18 @@ import Classical from "../../assets/classical.jpg";
 import PopExtravaganza from "../../assets/pop.jpg";
 import HipHopBash from "../../assets/hiphop.jpg";
 import CountryLive from "../../assets/Countrylive.jpg";
-import ReggaeVibes from "../../assets/reggaevibes.jpg";
+import ReggaeVibes from "../../assets/singer5.jpg";
 import IndieNight from "../../assets/indie.jpg";
 import MetalMayhem from "../../assets/metal.jpg";
 
 export default function Clickbtn() {
   const { categoryName } = useParams();
   const navigate = useNavigate();
+
   const events = [
     {
       id: 1,
+      category: "music",
       image: rockFestImage,
       title: "Rock Fest 2025",
       description: "Experience the best rock bands live!",
@@ -26,6 +28,7 @@ export default function Clickbtn() {
     },
     {
       id: 2,
+      category: "music",
       image: JazzNight,
       title: "Jazz Night",
       description: "A soulful evening with jazz legends.",
@@ -35,6 +38,7 @@ export default function Clickbtn() {
     },
     {
       id: 3,
+      category: "music",
       image: Festival,
       title: "EDM Festival",
       description: "Dance to the beats of top DJs.",
@@ -44,6 +48,7 @@ export default function Clickbtn() {
     },
     {
       id: 4,
+      category: "music",
       image: Classical,
       title: "Classical Symphony",
       description: "A night of timeless classical music.",
@@ -53,6 +58,7 @@ export default function Clickbtn() {
     },
     {
       id: 5,
+      category: "music",
       image: PopExtravaganza,
       title: "Pop Extravaganza",
       description: "Chart-topping pop stars perform live.",
@@ -62,6 +68,7 @@ export default function Clickbtn() {
     },
     {
       id: 6,
+      category: "music",
       image: HipHopBash,
       title: "Hip-Hop Bash",
       description: "Top rappers and hip-hop artists in one show.",
@@ -71,6 +78,7 @@ export default function Clickbtn() {
     },
     {
       id: 7,
+      category: "music",
       image: CountryLive,
       title: "Country Live",
       description: "Country music at its finest!",
@@ -80,6 +88,7 @@ export default function Clickbtn() {
     },
     {
       id: 8,
+      category: "music",
       image: ReggaeVibes,
       title: "Reggae Vibes",
       description: "Feel the reggae rhythms and relax.",
@@ -89,6 +98,7 @@ export default function Clickbtn() {
     },
     {
       id: 9,
+      category: "music",
       image: IndieNight,
       title: "Indie Night",
       description: "A special event for indie music lovers.",
@@ -98,6 +108,7 @@ export default function Clickbtn() {
     },
     {
       id: 10,
+      category: "music",
       image: MetalMayhem,
       title: "Metal Mayhem",
       description: "Headbang with the best metal bands.",
@@ -106,44 +117,52 @@ export default function Clickbtn() {
       time: "9:15 PM",
     },
   ];
-  
-  const handleBooking = (eventId) => {
-    navigate(`/book-ticket/${eventId}`);
-  };
+  // filter the events
+  const fiteredEvents = events.filter(
+    (event) => event.category === categoryName
+  );
 
   return (
     <section className="main-events-section">
-      <h1 className="music-title-card">Music Events</h1>
-      <div className="event-grid-card">
-        {events.map((eventdetails) => (
-          <div className="music-event-card" key={eventdetails.id}>
-            <img
-              src={eventdetails.image}
-              alt={eventdetails.title}
-              className="event-image"
-            />
+      <h1 className="music-title-card">
+        {categoryName ? `${categoryName} Events` : "Events"}
+      </h1>
 
-            <div>
-              <h2 className="music-event-title">{eventdetails.title}</h2>
-              <p className="event-descriptions">{eventdetails.description}</p>
-              <p className="music-event-info">
-                <strong>Location:</strong> {eventdetails.location}
-              </p>
-              <p className="music-event-info">
-                <strong>Date:</strong> {eventdetails.date}
-              </p>
-              <p className="music-event-info">
-                <strong>Time:</strong> {eventdetails.time}
-              </p>
-              <button
-                className="music-book-btn"
-                onClick={() => handleBooking(eventdetails.id)}
-              >
-                Book Ticket
-              </button>
+      <div className="event-grid-card">
+        {fiteredEvents.length > 0 ? (
+          fiteredEvents.map((eventdetails) => (
+            <div className="music-event-card" key={eventdetails.id}>
+              <img
+                src={eventdetails.image}
+                alt={eventdetails.title}
+                className="event-image"
+              />
+              <div>
+                <h2 className="music-event-title">{eventdetails.title}</h2>
+                <p className="event-descriptions">{eventdetails.description}</p>
+                <p className="music-event-info">
+                  <strong>Location:</strong> {eventdetails.location}
+                </p>
+                <p className="music-event-info">
+                  <strong>Date:</strong> {eventdetails.date}
+                </p>
+                <p className="music-event-info">
+                  <strong>Time:</strong> {eventdetails.time}
+                </p>
+                <button
+                  className="music-book-btn"
+                  onClick={() => navigate(`/book/${eventdetails.id}`)}
+                >
+                  Book Ticket
+                </button>
+              </div>
+            
+              
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p className="no-events">No events available {categoryName}.</p>
+        )}
       </div>
     </section>
   );

@@ -5,11 +5,8 @@ import Sponsers from "./Partners/Partners";
 import TicketSection from "./Ticketsection/Tickets";
 import Timer from "./Timer/Timer";
 import UpcoimgEvents from "./UpcomeEvent/Upcome";
-import { useNavigate } from "react-router-dom";
 
 export default function Eventprojects() {
-  
-  
   return (
     <>
       <Navbar />

@@ -1,8 +1,8 @@
 import "./Upcome.css";
+import { useState } from "react";
 import birthday from "../../assets/birthday.jpg";
 import musicImg from "../../assets/music.jpg";
 import party from "../../assets/grid1.jpg";
-import { useState } from "react";
 
 export default function UpcomingEvents() {
   const [showTicket, setShowTicket] = useState(false);

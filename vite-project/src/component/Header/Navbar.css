@@ -80,13 +80,14 @@
 
 .text-content h1 {
   font-size: 65px;
+  text-align: center;
   font-weight: 700;
   margin-bottom: 1rem;
   color: rgb(238, 82, 111);
 }
 
 .text-content p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: rgb(238, 82, 111);
   margin-bottom: 2rem;
   text-align: center;

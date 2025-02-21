@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "@fortawesome/fontawesome-free/css/all.css";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -12,7 +11,7 @@ export default function Navbar() {
   return (
     <section className="background-img">
       <nav className="navbar">
-        <div className="logo">CRAZY EVENTS</div>
+        <div className="logo ">Event Management</div>
 
         <div
           className={`hamburger-menu ${menuOpen ? "active" : ""}`}
@@ -38,7 +37,7 @@ export default function Navbar() {
 
       <article className="content-container">
         <div className="text-content">
-          <h1 className="event-name">CRAZY EVENTS</h1>
+          <h1 className="event-name">Event Management</h1>
           <p className="event-description">Welcome to my event page</p>
         </div>
       </article>

@@ -5,9 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
+  // navigate
   const navigate = useNavigate();
 
-
+  // connect api  & navigate
   useEffect(() => {
     const fetchCategory = async () => {
       try {
@@ -21,10 +22,11 @@ export default function Categories() {
     };
     fetchCategory();
   }, []);
-
+  // navigate
   const showCategory = (category) => {
-     console.log(`Selected Category: ${category}`);
-    navigate(`/category/${category}`);
+    console.log(`Selected Category: ${category}`);
+    // navigate(`/category/${category}`);
+    navigate(`/category/${category.toLowerCase()}`);
   };
 
   return (
@@ -46,7 +48,23 @@ export default function Categories() {
                 </li>
               ))
             ) : (
-              <p>Loading categories...</p>
+              <button
+                type="button"
+                class="bg-[#ee526f] text-white px-6 py-2 rounded flex items-center justify-center"
+                disabled
+              >
+                <svg class="mr-3 size-5 animate-spin ..." viewBox="0 0 24 24">
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="white"
+                    strokeWidth="4"
+                    strokeDasharray="30 10"
+                  />
+                </svg>
+                Processing…
+              </button>
             )}
           </ul>
         </div>
