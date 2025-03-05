@@ -5,10 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 export default function Categories() {
   const [categories, setCategories] = useState([]);
-  // navigate
   const navigate = useNavigate();
 
-  // connect api  & navigate
+  // Fetch Categories (GET)
   useEffect(() => {
     const fetchCategory = async () => {
       try {
@@ -20,13 +19,27 @@ export default function Categories() {
         console.error("Error fetching categories:", error);
       }
     };
+
     fetchCategory();
   }, []);
-  // navigate
-  const showCategory = (category) => {
-    console.log(`Selected Category: ${category}`);
-    // navigate(`/category/${category}`);
-    navigate(`/category/${category.toLowerCase()}`);
+
+  // Add Category (POST)
+  const addCategory = async (categoryName) => {
+    try {
+      const response = await axios.post(
+        "http://localhost:4050/user/add/categories",
+        { name: categoryName },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setCategories((prevCategories) => [...prevCategories, response.data]);
+
+    } catch (error) {
+      console.error("Error adding category:", error);
+    }
   };
 
   return (
@@ -35,37 +48,16 @@ export default function Categories() {
         <div className="categories">
           <h2 className="categories-heading">CATEGORIES</h2>
           <hr className="heading-line" />
-          <ul className="categories-list">
-            {categories.length > 0 ? (
-              categories.map((category, index) => (
-                <li key={index}>
-                  <button
-                    className="category-btn"
-                    onClick={() => showCategory(category.name)}
-                  >
-                    {category.name}
-                  </button>
-                </li>
-              ))
-            ) : (
-              <button
-                type="button"
-                class="bg-[#ee526f] text-white px-6 py-2 rounded flex items-center justify-center"
-                disabled
+          <ul className="categories-list select-none ...">
+            {categories.map((data) => (
+              <li
+                key={data._id} 
+                className="category-btn"
+                onClick={() => navigate(`/category/${data.name.toLowerCase()}`)}
               >
-                <svg class="mr-3 size-5 animate-spin ..." viewBox="0 0 24 24">
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="white"
-                    strokeWidth="4"
-                    strokeDasharray="30 10"
-                  />
-                </svg>
-                Processing…
-              </button>
-            )}
+                {data.name}
+              </li>
+            ))}
           </ul>
         </div>
       </article>

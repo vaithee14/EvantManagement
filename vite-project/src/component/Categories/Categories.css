@@ -39,13 +39,12 @@
 .category-btn {
   color: white;
   background-color: #ee526f;
-  padding: 10px 20px;
   border-radius: 25px;
-  font-size: 18px;
   font-weight: bold;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  padding: 15px 30px;
 }
 
 .category-btn:hover {

@@ -11,7 +11,7 @@ export default function TicketsBooking() {
   const paymentnav = useNavigate();
 
   const eventDetails = {
-    title: "Live Music Festival 2025",
+    title: "LIVE MUSIC FESTIVAL 2025",
     description:
       "Experience an unforgettable night of live performances by top artists from around the world. Get ready for amazing music, energetic vibes, and a night to remember!",
     location: "Madison Square Garden, New York, NY",
@@ -38,14 +38,14 @@ export default function TicketsBooking() {
         TICKETS BOOKING
       </h1>
 
-      <div className="bg-white shadow-md p-6 mt-6 max-w-[800px] w-full rounded-lg">
-        <h2 className="text-black text-3xl font-bold text-center">
+      <div className="bg-black shadow-md p-6 mt-6 max-w-[800px] w-full rounded-lg">
+        <h2 className=" text-3xl font-bold text-center text-[#ee5672]">
           {eventDetails.title}
         </h2>
-        <p className="text-gray-600 text-center mt-2">
+        <p className="text-white text-center mt-2">
           {eventDetails.description}
         </p>
-        <div className="mt-4 text-gray-700 text-center">
+        <div className="mt-4 text-white text-center">
           <p>
             <strong> Location:</strong> {eventDetails.location}
           </p>

@@ -11,13 +11,13 @@ export default function Navbar() {
   return (
     <section className="background-img">
       <nav className="navbar">
-        <div className="logo ">Event Management</div>
+        <div className="logo ">EVENT MANAGEMENT</div>
 
         <div
           className={`hamburger-menu ${menuOpen ? "active" : ""}`}
           onClick={toggleMenu}
         >
-          <i class="fa fa-bars"></i>
+          <i className="fa fa-bars"></i>
         </div>
         <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
           <li>
