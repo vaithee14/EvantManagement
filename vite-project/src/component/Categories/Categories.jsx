@@ -36,7 +36,6 @@ export default function Categories() {
         }
       );
       setCategories((prevCategories) => [...prevCategories, response.data]);
-
     } catch (error) {
       console.error("Error adding category:", error);
     }
@@ -51,7 +50,7 @@ export default function Categories() {
           <ul className="categories-list select-none ...">
             {categories.map((data) => (
               <li
-                key={data._id} 
+                key={data._id}
                 className="category-btn"
                 onClick={() => navigate(`/category/${data.name.toLowerCase()}`)}
               >

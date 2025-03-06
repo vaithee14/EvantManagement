@@ -37,8 +37,8 @@ export default function Navbar() {
 
       <article className="content-container">
         <div className="text-content">
-          <h1 className="event-name">Event Management</h1>
-          <p className="event-description">Welcome to my event page</p>
+          <h1 className="event-name">EVENT MANAGEMENT</h1>
+          <p className="event-description">WELCOME TO MY EVENT PAGE</p>
         </div>
       </article>
     </section>

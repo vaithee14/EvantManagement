@@ -1,29 +1,38 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-import rockimage from "../../assets/rock.jpg";
-import metal from "../../assets/metal.jpg";
+import { fetchMusicEvents } from "../slice/music";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Musicbtn() {
-  const [musicEvent, setmusicEvent] = useState([]);
+  // const [musicEvent, setmusicEvent] = useState([]);
 
   const SectionNavigate = useNavigate();
+  const Anotherevent = useNavigate();
+
+  const dispatch = useDispatch();
+  const { musicEvents, status, error } = useSelector((state) => state.music);
+  console.log(musicEvents, "musicEvents");
 
   // get method
   useEffect(() => {
-    const FetchMusicEvents = async () => {
-      try {
-        const musicEvents = await axios.get(
-          "http://localhost:4050/api/music/getMusic"
-        );
-        setmusicEvent(musicEvents.data);
-      } catch (Error) {
-        console.error(Error);
-      }
-    };
-    FetchMusicEvents();
-  }, []);
+    if (status === "idle") {
+      dispatch(fetchMusicEvents()); // Dispatch Redux action to fetch data
+    }
+  }, [status, dispatch]);
+  // useEffect(() => {
+  //   const FetchMusicEvents = async () => {
+  //     try {
+  //       const musicEvents = await axios.get(
+  //         "http://localhost:4050/api/music/getMusic"
+  //       );
+  //       setmusicEvent(musicEvents.data);
+  //     } catch (Error) {
+  //       console.error(Error);
+  //     }
+  //   };
+  //   FetchMusicEvents();
+  // }, []);
   // post method
   const addMusicEvent = async () => {
     try {
@@ -42,14 +51,23 @@ export default function Musicbtn() {
     SectionNavigate("../tickectsection");
   };
 
+  const clickaanotherbtn = () => {
+    Anotherevent("../AnotherMusicEvent");
+  };
+
   return (
     <section className="p-6">
       <h1 className="text-white bg-[#ee526f] text-center py-2 text-2xl font-bold uppercase">
         Music Events
       </h1>
+      <div>
+        <button className="px-5 bg-amber-400" onClick={clickaanotherbtn}>
+          Click Me
+        </button>
+      </div>
 
       <div className="flex flex-col items-center gap-6 mt-6">
-        {musicEvent.map((events) => (
+        {musicEvents.map((events) => (
           <div
             key={events._id}
             className="flex flex-col md:flex-row items-center bg-white shadow-lg rounded-lg w-[90%] md:w-[80%] p-6"
@@ -85,7 +103,6 @@ export default function Musicbtn() {
             </div>
           </div>
         ))}
-       
       </div>
     </section>
   );

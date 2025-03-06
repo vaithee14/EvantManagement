@@ -43,6 +43,7 @@ export default function Dancingbtn() {
   const moveTicketSections = () => {
     SectionNav("../tickectsection");
   };
+
   return (
     <>
       <section className="p-6">

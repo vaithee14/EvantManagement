@@ -42,7 +42,7 @@
 }
 
 .navbar .logo {
-  font-size: 1.8rem;
+  font-size: 20px;
   font-weight: bold;
   color: white;
 }
@@ -78,7 +78,7 @@
 }
 
 .text-content h1 {
-  font-size: 65px;
+  font-size: 61px;
   text-align: center;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -90,6 +90,9 @@
   color: rgb(238, 82, 111);
   margin-bottom: 2rem;
   text-align: center;
+  font-style: italic;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  padding-top: 20px;
 }
 
 @media (max-width: 768px) {
